@@ -16,7 +16,7 @@ SELECT students.id, students.name, cohorts.name as cohort_id
 FROM students
 JOIN cohorts ON cohorts.id = cohort_id
 WHERE cohorts.name LIKE '%${cohortQuery}%'
-LIMIT ${queryLimit};
+LIMIT ${queryLimit || 5};
 `)
 .then(res => {
   res.rows.forEach(user => {
